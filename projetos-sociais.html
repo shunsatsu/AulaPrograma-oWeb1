@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos Sociais - Green Day ONG</title>
+
+  <style>
+    :root {
+      --color-primary: #00aa44;
+      --color-primary-light: #00ff66;
+      --color-secondary: #004422;
+      --color-secondary-light: #008833;
+      --color-neutral-dark: #0f0f0f;
+      --color-neutral-card: #1b1b1b;
+      --color-neutral-text: #e0ffe0;
+      --color-accent: #ffaa00;
+      --color-accent-light: #ffd633;
+      --color-error: #ff3333;
+
+      --font-xs: 12px;
+      --font-sm: 14px;
+      --font-md: 16px;
+      --font-lg: 20px;
+      --font-xl: 28px;
+
+      --space-8: 8px;
+      --space-16: 16px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --space-48: 48px;
+      --space-64: 64px;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--color-neutral-dark);
+      color: var(--color-neutral-text);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--color-neutral-card);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,170,68,0.25);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-16);
+    }
+
+    .logo { font-size: var(--font-lg); font-weight: bold; color: var(--color-primary); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: var(--space-32);
+    }
+
+    nav ul li { position: relative; }
+
+    nav a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: var(--font-md);
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover { color: var(--color-primary-light); }
+
+    nav li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--color-neutral-card);
+      padding: var(--space-8) 0;
+      border-radius: 5px;
+      min-width: 150px;
+    }
+
+    nav li:hover ul { display: block; }
+    nav li ul li { padding: var(--space-8) var(--space-16); }
+    nav li ul li a { font-size: var(--font-sm); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--color-primary);
+    }
+
+    @media(max-width: 768px) {
+      nav ul { display: none; flex-direction: column; background-color: var(--color-neutral-card); position: absolute; top: 60px; left: 0; width: 100%; }
+      nav ul.active { display: flex; }
+      .hamburger { display: flex; }
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 100px auto 40px auto;
+      padding: var(--space-16);
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-16);
+    }
+
+    h1 { grid-column: span 12; font-size: var(--font-xl); color: var(--color-primary-light); margin-bottom: var(--space-24); text-align: center; }
+
+    .intro {
+      grid-column: span 12;
+      font-size: var(--font-md);
+      line-height: 1.6;
+      margin-bottom: var(--space-24);
+    }
+
+    .intro-img {
+      grid-column: span 12;
+      text-align: center;
+      margin-bottom: var(--space-32);
+    }
+
+    .intro-img img {
+      max-width: 50%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .cards { grid-column: span 12; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-16); }
+
+    .card {
+      background-color: var(--color-neutral-card);
+      padding: var(--space-16);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,170,68,0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h3 { font-size: var(--font-lg); margin-bottom: var(--space-8); }
+    .card p { font-size: var(--font-sm); margin-bottom: var(--space-8); }
+
+    .badge { display: inline-block; padding: 4px 8px; border-radius: 5px; background-color: var(--color-accent); color: #000; font-size: var(--font-sm); margin-right: var(--space-4); margin-top: var(--space-4); }
+
+    .btn { display: inline-block; background-color: var(--color-primary); color: #fff; padding: var(--space-8) var(--space-16); border-radius: 5px; text-decoration: none; font-size: var(--font-md); transition: all 0.2s ease; }
+    .btn:hover { background-color: var(--color-primary-light); }
+    .btn:active { transform: scale(0.98); }
+    .btn:focus { outline: 2px solid var(--color-accent); }
+
+    @media(max-width: 992px) { main { grid-template-columns: repeat(6, 1fr); } }
+    @media(max-width: 768px) { main { grid-template-columns: repeat(4, 1fr); } }
+    @media(max-width: 576px) { main { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width: 400px) { main { grid-template-columns: repeat(1, 1fr); } }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Green Day</div>
+      <div class="hamburger" id="hamburger">
+        <div></div><div></div><div></div>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li>
+            <a href="projetos-sociais.html">Projetos Sociais</a>
+            <ul>
+              <li><a href="#">Projeto 1</a></li>
+              <li><a href="#">Projeto 2</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Projetos Sociais da Green Day</h1>
+
+    <div class="intro">
+      <p>
+        Na <strong>Green Day</strong>, acreditamos que cada ação conta para a preservação ambiental e a transformação das comunidades.
+        Nossos projetos sociais envolvem reflorestamento, educação ambiental, reciclagem, proteção da fauna e flora e muito mais.
+      </p>
+      <p>
+        Como colaborador, você pode participar voluntariando-se em nossas ações, ajudando na organização de eventos, contribuindo com materiais ou doações,
+        ou até mesmo divulgando nossas campanhas para alcançar mais pessoas. Sua participação faz a diferença!
+      </p>
+    </div>
+    <div class="intro-img">
+      <img src="imagens/voluntariado.jpg" alt="Voluntariado Green Day">
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Projeto Arborização</h3>
+        <span class="badge">Urgente</span>
+        <p>Plantio de árvores em áreas degradadas e parques urbanos.</p>
+        <a href="#" class="btn">Saiba Mais</a>
+      </div>
+      <div class="card">
+        <h3>Campanha de Reciclagem</h3>
+        <span class="badge">Em Andamento</span>
+        <p>Coleta seletiva e educação ambiental em escolas.</p>
+        <a href="#" class="btn">Saiba Mais</a>
+      </div>
+      <div class="card">
+        <h3>Educação Ambiental</h3>
+        <span class="badge">Novo</span>
+        <p>Workshops e palestras para escolas e comunidades.</p>
+        <a href="#" class="btn">Saiba Mais</a>
+      </div>
+      <div class="card">
+        <h3>Proteção da Fauna e Flora</h3>
+        <span class="badge">Ativo</span>
+        <p>Monitoramento e preservação de espécies locais.</p>
+        <a href="#" class="btn">Saiba Mais</a>
+      </div>
+      <div class="card">
+        <h3>Jardinagem Comunitária</h3>
+        <span class="badge">Em Planejamento</span>
+        <p>Espaços verdes colaborativos com a comunidade.</p>
+        <a href="#" class="btn">Saiba Mais</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    hamburger.addEventListener('click', () => { menu.classList.toggle('active'); });
+  </script>
+</body>
+</html>

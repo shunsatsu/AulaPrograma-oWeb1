@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Green Day ONG</title>
+
+  <style>
+    :root {
+      --color-primary: #00aa44;
+      --color-primary-light: #00ff66;
+      --color-secondary: #004422;
+      --color-secondary-light: #008833;
+      --color-neutral-dark: #0f0f0f;
+      --color-neutral-card: #1b1b1b;
+      --color-neutral-text: #e0ffe0;
+      --color-accent: #ffaa00;
+      --color-accent-light: #ffd633;
+      --color-error: #ff3333;
+
+      --font-xs: 12px;
+      --font-sm: 14px;
+      --font-md: 16px;
+      --font-lg: 20px;
+      --font-xl: 28px;
+
+      --space-8: 8px;
+      --space-16: 16px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --space-48: 48px;
+      --space-64: 64px;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--color-neutral-dark);
+      color: var(--color-neutral-text);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--color-neutral-card);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,170,68,0.25);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-16);
+    }
+
+    .logo { font-size: var(--font-lg); font-weight: bold; color: var(--color-primary); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: var(--space-32);
+    }
+
+    nav ul li { position: relative; }
+
+    nav a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: var(--font-md);
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover { color: var(--color-primary-light); }
+
+    nav li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--color-neutral-card);
+      padding: var(--space-8) 0;
+      border-radius: 5px;
+      min-width: 150px;
+    }
+
+    nav li:hover ul { display: block; }
+    nav li ul li { padding: var(--space-8) var(--space-16); }
+    nav li ul li a { font-size: var(--font-sm); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--color-primary);
+    }
+
+    @media(max-width: 768px) {
+      nav ul { display: none; flex-direction: column; background-color: var(--color-neutral-card); position: absolute; top: 60px; left: 0; width: 100%; }
+      nav ul.active { display: flex; }
+      .hamburger { display: flex; }
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 100px auto 40px auto;
+      padding: var(--space-16);
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-16);
+    }
+
+    h1 { grid-column: span 12; font-size: var(--font-xl); color: var(--color-primary-light); margin-bottom: var(--space-24); text-align: center; }
+
+    form {
+      grid-column: span 12;
+      display: grid;
+      gap: var(--space-16);
+      background-color: var(--color-neutral-card);
+      padding: var(--space-24);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,170,68,0.2);
+    }
+
+    fieldset {
+      border: 2px solid var(--color-primary);
+      border-radius: 8px;
+      padding: var(--space-16);
+      display: grid;
+      gap: var(--space-16);
+    }
+
+    legend { font-weight: bold; color: var(--color-primary); }
+
+    label { font-size: var(--font-md); }
+
+    input, select, button {
+      font-size: var(--font-md);
+      padding: var(--space-8);
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input:invalid { border-color: var(--color-error); }
+
+    button {
+      background-color: var(--color-primary);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover { background-color: var(--color-primary-light); }
+    button:active { transform: scale(0.98); }
+    button:focus { outline: 2px solid var(--color-accent); }
+    button:disabled { background-color: #555; cursor: not-allowed; }
+
+    @media(max-width: 992px) { main { grid-template-columns: repeat(6, 1fr); } }
+    @media(max-width: 768px) { main { grid-template-columns: repeat(4, 1fr); } }
+    @media(max-width: 576px) { main { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width: 400px) { main { grid-template-columns: repeat(1, 1fr); } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Green Day</div>
+      <div class="hamburger" id="hamburger">
+        <div></div><div></div><div></div>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li>
+            <a href="projetos-sociais.html">Projetos Sociais</a>
+            <ul>
+              <li><a href="#">Projeto 1</a></li>
+              <li><a href="#">Projeto 2</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Cadastro de Colaboradores</h1>
+
+    <form>
+      <fieldset>
+        <legend>Informações Pessoais</legend>
+
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required maxlength="14">
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required maxlength="15">
+
+        <label for="nascimento">Data de Nascimento:</label>
+        <input type="date" id="nascimento" name="nascimento" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Endereço</legend>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" placeholder="Rua, número e complemento" required>
+
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" placeholder="00000-000" required maxlength="9">
+
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" required>
+
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" required>
+          <option value="">Selecione</option>
+          <option value="SP">SP</option>
+          <option value="RJ">RJ</option>
+          <option value="MG">MG</option>
+          <option value="RS">RS</option>
+          <option value="BA">BA</option>
+          <option value="PR">PR</option>
+          <option value="SC">SC</option>
+          <option value="PE">PE</option>
+        </select>
+      </fieldset>
+
+      <button type="submit">Enviar Cadastro</button>
+    </form>
+  </main>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    hamburger.addEventListener('click', () => { menu.classList.toggle('active'); });
+
+    // Exemplo de máscara simples para CPF, Telefone e CEP
+    const cpf = document.getElementById('cpf');
+    cpf.addEventListener('input', () => {
+      let v = cpf.value.replace(/\D/g, '');
+      v = v.replace(/(\d{3})(\d)/,'$1.$2');
+      v = v.replace(/(\d{3})(\d)/,'$1.$2');
+      v = v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+      cpf.value = v;
+    });
+
+    const telefone = document.getElementById('telefone');
+    telefone.addEventListener('input', () => {
+      let v = telefone.value.replace(/\D/g, '');
+      v = v.replace(/(\d{2})(\d)/,'($1) $2');
+      v = v.replace(/(\d{5})(\d)/,'$1-$2');
+      telefone.value = v;
+    });
+
+    const cep = document.getElementById('cep');
+    cep.addEventListener('input', () => {
+      let v = cep.value.replace(/\D/g, '');
+      v = v.replace(/(\d{5})(\d)/,'$1-$2');
+      cep.value = v;
+    });
+  </script>
+</body>
+</html>
