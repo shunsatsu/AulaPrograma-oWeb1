@@ -1,61 +1,112 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Day - voluntarios</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Projetos Sociais - Green Day ONG (Dinâmico)</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-        <h1>Voluntarios e doações</h1>
-       <nav>
-        <ul>
-            <li> <a href="index.html">inicio</a></li>
-            <li> <a href="cadastro.html">cadastro</a></li>
-            <li><a href="projetos-sociais.html">Projetos Sociais</a></li>
-        </ul>
-        </nav>
-</header>
+
 <body>
-    <header> <main> 
-        <h2>🤝 Seja um Voluntário da Green Day</h2>
-  <p>A <strong>Green Day</strong> acredita que toda pessoa pode fazer a diferença. Se você tem vontade de <strong>atuar pela preservação ambiental</strong> e <strong>ajudar comunidades locais</strong>, venha fazer parte da nossa equipe de voluntários!</p>
+  <header>
+    <div class="logo">🌱 Green Day - Projetos</div>
 
-  <p>Ser voluntário na Green Day é mais do que doar tempo — é <em>participar ativamente da construção de um futuro mais verde e sustentável</em>.</p>
+    <!-- Botão Hamburguer -->
+    <button class="menu-hamburguer" id="menuBtn" aria-label="Abrir menu">
+      <span class="hamburguer-linha"></span>
+      <span class="hamburguer-linha"></span>
+      <span class="hamburguer-linha"></span>
+    </button>
 
-  <h3>🌿 O que os voluntários fazem:</h3>
-  <ul>
-    <li>Plantio de árvores em áreas degradadas e parques urbanos;</li>
-    <li>Campanhas de conscientização ambiental em escolas e praças;</li>
-    <li>Apoio em eventos ecológicos e feiras sustentáveis;</li>
-    <li>Recolhimento e separação de materiais recicláveis;</li>
-    <li>Produção de conteúdos educativos para redes sociais e projetos locais.</li>
-  </ul>
+    <!-- Controles -->
+    <div class="controls" id="controlsArea" aria-hidden="false">
+      <input 
+        id="search" 
+        class="input" 
+        placeholder="Buscar projetos..." 
+        aria-label="Buscar projetos" 
+      />
+      <select id="filterStatus" class="input" aria-label="Filtrar por status">
+        <option value="all">Todos os status</option>
+        <option value="Urgente">Urgente</option>
+        <option value="Em Andamento">Em Andamento</option>
+        <option value="Novo">Novo</option>
+        <option value="Ativo">Ativo</option>
+        <option value="Em Planejamento">Em Planejamento</option>
+      </select>
+      <select id="sortBy" class="input" aria-label="Ordenar">
+        <option value="default">Ordenar</option>
+        <option value="name-asc">Nome A→Z</option>
+        <option value="name-desc">Nome Z→A</option>
+        <option value="status">Status</option>
+      </select>
+      <button id="openAdd" class="btn">+ Novo Projeto</button>
+      <button id="resetAll" class="btn ghost" title="Resetar dados locais">Reset</button>
+    </div>
+  </header>
 
-  <p>Todos os voluntários recebem orientação, materiais e suporte da equipe Green Day. Não é necessário ter experiência prévia — basta <strong>vontade de colaborar e amor pela natureza</strong>.</p>
- <img src="imagens/voluntariado.jpg" style="max-width:30%; height: auto;">
-  <h3>💚 Como se voluntariar:</h3>
-  <ol>
-    <li>Preencha o formulário de cadastro no site ou envie um e-mail para <a href="mailto:voluntarios@greendayong.org.br">voluntarios@greendayong.org.br</a>;</li>
-    <li>Escolha as áreas em que deseja atuar;</li>
-    <li>Aguarde nosso contato com as próximas ações e treinamentos disponíveis.</li>
-  </ol>
+  <main>
+    <h1>Projetos Sociais da Green Day</h1>
+    <p class="lead">
+      Participe: crie projetos, filtre, busque, edite e reordene. Tudo salvo no seu navegador para teste.
+    </p>
 
-  <h3>💰 Como doar:</h3>
-  <p>Suas doações ajudam a manter nossos projetos ativos e a ampliar o impacto ambiental positivo.  
-  Você pode contribuir de diferentes formas:</p>
+    <section id="grid" class="grid" aria-live="polite"></section>
 
-  <ul>
-    <li>Doações financeiras (via Pix, transferência ou boleto);</li>
-    <li>Doação de materiais recicláveis ou de jardinagem;</li>
-    <li>Parcerias empresariais e patrocínios de eventos sustentáveis.</li>
-  </ul>
+    <div id="empty" class="empty" style="display:none">
+      <p>Nenhum projeto cadastrado. Clique em <strong>+ Novo Projeto</strong> para criar um.</p>
+    </div>
 
-  <p><strong>Chave Pix:</strong> doacoes@greendayong.org.br<br>
-  <strong>Conta:</strong> Banco Verde – Agência 1234 – Conta 56789-0</p>
+    <!-- Overlay Modal -->
+    <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal" role="document" aria-labelledby="modalTitle">
+        <h2 id="modalTitle">Novo Projeto</h2>
+        <div id="modalAlert" class="alert" style="display:none"></div>
+        <form id="projectForm">
+          <div class="form-row">
+            <input id="projName" required placeholder="Nome do projeto" />
+            <select id="projStatus">
+              <option>Urgente</option>
+              <option>Em Andamento</option>
+              <option>Novo</option>
+              <option>Ativo</option>
+              <option>Em Planejamento</option>
+            </select>
+          </div>
 
-  <p>Cada contribuição é um passo rumo a um planeta mais saudável! 🌎💚</p>
-</section> 
-</main>
-    </header>
-    
+          <div class="form-row">
+            <input id="projLocation" placeholder="Local (cidade/estado)" />
+            <input id="projContact" placeholder="Contato (telefone ou e-mail)" />
+          </div>
+
+          <div class="form-row">
+            <textarea id="projDesc" placeholder="Descrição do projeto"></textarea>
+          </div>
+
+          <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
+            <button type="button" id="cancelBtn" class="btn ghost">Cancelar</button>
+            <button type="submit" class="btn" id="saveBtn">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Green Day ONG — Dados locais (localStorage) usados apenas para demonstração.
+  </footer>
+
+  <script src="projetos-sociais.js"></script>
+
+  <!-- Script do Menu Hamburguer -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const controls = document.getElementById('controlsArea');
+
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('aberto');
+      controls.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>

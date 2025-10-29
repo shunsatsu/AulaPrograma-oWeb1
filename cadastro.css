@@ -1,0 +1,163 @@
+:root {
+      --color-primary: #00aa44;
+      --color-primary-light: #00ff66;
+      --color-secondary: #004422;
+      --color-secondary-light: #008833;
+      --color-neutral-dark: #a36a6a;
+      --color-neutral-card: #2d1f72;
+      --color-neutral-text: #293929;
+      --color-accent: #ffaa00;
+      --color-accent-light: #5f1e60;
+      --color-error: #6e1818;
+
+      --font-xs: 12px;
+      --font-sm: 14px;
+      --font-md: 16px;
+      --font-lg: 20px;
+      --font-xl: 28px;
+
+      --space-8: 8px;
+      --space-16: 16px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --space-48: 48px;
+      --space-64: 64px;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--color-neutral-dark);
+      color: var(--color-neutral-text);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--color-neutral-card);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,170,68,0.25);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-16);
+    }
+
+    .logo { font-size: var(--font-lg); font-weight: bold; color: var(--color-primary); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: var(--space-32);
+    }
+
+    nav ul li { position: relative; }
+
+    nav a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: var(--font-md);
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover { color: var(--color-primary-light); }
+
+    nav li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--color-neutral-card);
+      padding: var(--space-8) 0;
+      border-radius: 5px;
+      min-width: 150px;
+    }
+
+    nav li:hover ul { display: block; }
+    nav li ul li { padding: var(--space-8) var(--space-16); }
+    nav li ul li a { font-size: var(--font-sm); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--color-primary);
+    }
+
+    @media(max-width: 768px) {
+      nav ul { display: none; flex-direction: column; background-color: var(--color-neutral-card); position: absolute; top: 60px; left: 0; width: 100%; }
+      nav ul.active { display: flex; }
+      .hamburger { display: flex; }
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 100px auto 40px auto;
+      padding: var(--space-16);
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-16);
+    }
+
+    h1 { grid-column: span 12; font-size: var(--font-xl); color: var(--color-primary-light); margin-bottom: var(--space-24); text-align: center; }
+
+    form {
+      grid-column: span 12;
+      display: grid;
+      gap: var(--space-16);
+      background-color: var(--color-neutral-card);
+      padding: var(--space-24);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,170,68,0.2);
+    }
+
+    fieldset {
+      border: 2px solid var(--color-primary);
+      border-radius: 8px;
+      padding: var(--space-16);
+      display: grid;
+      gap: var(--space-16);
+    }
+
+    legend { font-weight: bold; color: var(--color-primary); }
+
+    label { font-size: var(--font-md); }
+
+    input, select, button {
+      font-size: var(--font-md);
+      padding: var(--space-8);
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input:invalid { border-color: var(--color-error); }
+
+    button {
+      background-color: var(--color-primary);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover { background-color: var(--color-primary-light); }
+    button:active { transform: scale(0.98); }
+    button:focus { outline: 2px solid var(--color-accent); }
+    button:disabled { background-color: #555; cursor: not-allowed; }
+
+    @media(max-width: 992px) { main { grid-template-columns: repeat(6, 1fr); } }
+    @media(max-width: 768px) { main { grid-template-columns: repeat(4, 1fr); } }
+    @media(max-width: 576px) { main { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width: 400px) { main { grid-template-columns: repeat(1, 1fr); } }
