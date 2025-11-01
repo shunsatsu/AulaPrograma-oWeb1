@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projetos sociais - Conheça nossas iniciativas de voluntariado e como participar">
+    <meta name="theme-color" content="#667eea">
+    <title>Projetos - Voluntários</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="nav-logo">❤️ Voluntários</h1>
+                <button class="nav-toggle" aria-label="Abrir menu de navegação">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="cadastro.html" class="nav-link">Cadastro</a></li>
+                    <li><a href="projeto.html" class="nav-link active">Projetos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects-hero">
+            <div class="container">
+                <h2>Nossos Projetos</h2>
+                <p>Conheça as iniciativas que transformam vidas todos os dias</p>
+            </div>
+        </section>
+
+        <section class="projects-grid">
+            <div class="container">
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="doacao">Doações</button>
+                    <button class="filter-btn" data-filter="inclusao">Inclusão</button>
+                    <button class="filter-btn" data-filter="educacao">Educação</button>
+                    <button class="filter-btn" data-filter="saude">Saúde</button>
+                </div>
+
+                <div class="projects-container">
+                    <div class="project-card" data-category="doacao">
+                        <img src="images/doaçaocomida.jpg" alt="Doação de Alimentos" />
+                        <div class="project-content">
+                            <h3>Alimenta Solidário</h3>
+                            <p>Arrecadação e distribuição de alimentos para famílias em situação de vulnerabilidade social.</p>
+                            <div class="project-meta">
+                                <span class="project-status active">Ativo</span>
+                                <span class="project-volunteers">45 voluntários</span>
+                            </div>
+                            <div class="project-details">
+                                <p><strong>Local:</strong> Comunidade do Jardim Esperança</p>
+                                <p><strong>Horário:</strong> Sábados, 8h às 12h</p>
+                                <p><strong>Próxima ação:</strong> 2 de Novembro</p>
+                            </div>
+                            <button class="btn-primary project-join" data-project="alimenta">Participar</button>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="doacao">
+                        <img src="images/doaçãoroupas.jpg" alt="Doação de Roupas" />
+                        <div class="project-content">
+                            <h3>Vestir Esperança</h3>
+                            <p>Coleta, triagem e distribuição de roupas e calçados para pessoas necessitadas.</p>
+                            <div class="project-meta">
+                                <span class="project-status active">Ativo</span>
+                                <span class="project-volunteers">32 voluntários</span>
+                            </div>
+                            <div class="project-details">
+                                <p><strong>Local:</strong> Centro Comunitário São José</p>
+                                <p><strong>Horário:</strong> Domingos, 14h às 18h</p>
+                                <p><strong>Próxima ação:</strong> 3 de Novembro</p>
+                            </div>
+                            <button class="btn-primary project-join" data-project="vestir">Participar</button>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="inclusao">
+                        <img src="images/cadeirante.jpg" alt="Projeto Acessibilidade" />
+                        <div class="project-content">
+                            <h3>Caminhos Acessíveis</h3>
+                            <p>Promoção da acessibilidade e inclusão de pessoas com deficiência na comunidade.</p>
+                            <div class="project-meta">
+                                <span class="project-status active">Ativo</span>
+                                <span class="project-volunteers">28 voluntários</span>
+                            </div>
+                            <div class="project-details">
+                                <p><strong>Local:</strong> Vários pontos da cidade</p>
+                                <p><strong>Horário:</strong> Flexível</p>
+                                <p><strong>Próxima ação:</strong> 5 de Novembro</p>
+                            </div>
+                            <button class="btn-primary project-join" data-project="acessivel">Participar</button>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="doacao">
+                        <img src="images/doaçaocomida2.jpg" alt="Cesta Básica Solidária" />
+                        <div class="project-content">
+                            <h3>Cesta Básica Solidária</h3>
+                            <p>Montagem e entrega de cestas básicas para famílias cadastradas em nosso programa.</p>
+                            <div class="project-meta">
+                                <span class="project-status active">Ativo</span>
+                                <span class="project-volunteers">55 voluntários</span>
+                            </div>
+                            <div class="project-details">
+                                <p><strong>Local:</strong> Central de Distribuição</p>
+                                <p><strong>Horário:</strong> Quartas, 9h às 16h</p>
+                                <p><strong>Próxima ação:</strong> 30 de Outubro</p>
+                            </div>
+                            <button class="btn-primary project-join" data-project="cesta">Participar</button>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="educacao">
+                        <img src="images/voluntario4.jpg" alt="Educação Popular" />
+                        <div class="project-content">
+                            <h3>Saber Compartilhado</h3>
+                            <p>Aulas de reforço escolar e alfabetização para crianças e adultos da comunidade.</p>
+                            <div class="project-meta">
+                                <span class="project-status active">Ativo</span>
+                                <span class="project-volunteers">22 voluntários</span>
+                            </div>
+                            <div class="project-details">
+                                <p><strong>Local:</strong> Biblioteca Comunitária</p>
+                                <p><strong>Horário:</strong> Terças e Quintas, 19h às 21h</p>
+                                <p><strong>Próxima ação:</strong> 29 de Outubro</p>
+                            </div>
+                            <button class="btn-primary project-join" data-project="educacao">Participar</button>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="saude">
+                        <img src="images/voluntario.jpg" alt="Saúde Comunitária" />
+                        <div class="project-content">
+                            <h3>Saúde Para Todos</h3>
+                            <p>Campanhas de saúde preventiva e orientação sobre cuidados básicos de saúde.</p>
+                            <div class="project-meta">
+                                <span class="project-status planning">Em Planejamento</span>
+                                <span class="project-volunteers">15 voluntários</span>
+                            </div>
+                            <div class="project-details">
+                                <p><strong>Local:</strong> UBS Central</p>
+                                <p><strong>Horário:</strong> Sábados, 8h às 12h</p>
+                                <p><strong>Próxima ação:</strong> 10 de Novembro</p>
+                            </div>
+                            <button class="btn-primary project-join" data-project="saude">Participar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-stats">
+            <div class="container">
+                <h2>Impacto dos Nossos Projetos</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <img src="images/doaçaocomida3.jpg" alt="Alimentos distribuídos" />
+                        <div class="stat-content">
+                            <span class="stat-number">2.500</span>
+                            <span class="stat-label">Cestas básicas distribuídas</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <img src="images/donations.jpg" alt="Roupas doadas" />
+                        <div class="stat-content">
+                            <span class="stat-number">5.000</span>
+                            <span class="stat-label">Peças de roupa doadas</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <img src="images/voluntarios.jpg" alt="Pessoas atendidas" />
+                        <div class="stat-content">
+                            <span class="stat-number">1.200</span>
+                            <span class="stat-label">Pessoas beneficiadas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="join-project">
+            <div class="container">
+                <div class="join-content">
+                    <h2>Quer participar de um projeto?</h2>
+                    <p>Escolha o projeto que mais combina com você e faça parte da mudança!</p>
+                    <div class="join-actions">
+                        <a href="cadastro.html" class="btn-primary">Cadastre-se como Voluntário</a>
+                        <button class="btn-secondary" onclick="scrollToProjects()">Ver Todos os Projetos</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Voluntários. Todos os direitos reservados.</p>
+            <p>Juntos podemos transformar o mundo! ❤️</p>
+            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.6;">
+                <a href="admin.html" style="color: inherit; text-decoration: none;">⚙️</a>
+            </p>
+        </div>
+    </footer>
+
+    
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Inscrever-se no Projeto</h2>
+            <form id="projectSignupForm">
+                <input type="hidden" id="selectedProject" name="project">
+                <div class="form-group">
+                    <label for="volunteerName">Seu Nome *</label>
+                    <input type="text" id="volunteerName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="volunteerEmail">Seu E-mail *</label>
+                    <input type="email" id="volunteerEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="volunteerPhone">Seu Telefone *</label>
+                    <input type="tel" id="volunteerPhone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="availability">Sua Disponibilidade *</label>
+                    <textarea id="availability" name="availability" required placeholder="Ex: Sábados das 8h às 12h"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Confirmar Inscrição</button>
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Voltar ao topo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14L12 9L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    
+    <script src="js/navigation.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
