@@ -1,0 +1,27 @@
+{
+  "name": "sistema-voluntarios",
+  "version": "1.0.0",
+  "description": "Sistema completo de gestão de voluntários com painel administrativo",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [
+    "voluntarios",
+    "ong",
+    "gestao",
+    "projetos-sociais",
+    "dashboard"
+  ],
+  "author": "Darlan",
+  "license": "MIT",
+  "homepage": "https://github.com/USERNAME/sistema-voluntarios#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/USERNAME/sistema-voluntarios.git"
+  },
+  "bugs": {
+    "url": "https://github.com/USERNAME/sistema-voluntarios/issues"
+  }
+}
